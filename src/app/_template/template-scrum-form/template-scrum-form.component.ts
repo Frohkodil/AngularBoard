@@ -12,4 +12,7 @@ export class TemplateScrumFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  createNote($event: MouseEvent) {
+
+  }
 }
