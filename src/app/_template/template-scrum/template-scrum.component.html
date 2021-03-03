@@ -5,5 +5,23 @@
     <th>In Arbeit</th>
     <th>Abgeschlossen</th>
   </tr>
+  <!--<tr><td><app-sticky-note></app-sticky-note></td></tr>-->
+        <tr *ngFor="let note of notes" class="list-group-item">
+          <td> <div class="sticky-note">{{note.titel}}<br>{{note.beschreibung}}</div></td>
+          <td></td>
+          <td></td>
+        </tr>
+  <tr>
+    <td><div class="todo-form">
+      <form #Aufgaben="ngForm" (ngSubmit)="onSubmit(Aufgaben.value)">
+        <input type="text" name="titel" ngModel required>
+        <br>
+        <input type="text" name="beschreibung" ngModel required>
+        <br>
+        <input type = "submit" value = "Aufgabe erstellen">
+      </form>
+    </div></td>
+  </tr>
 </table>
 </div>
+

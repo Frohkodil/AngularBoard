@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TemplateScrumFormComponent } from './template-scrum-form.component';
+import { StickyNoteComponent } from './sticky-note.component';
 
-describe('TemplateScrumFormComponent', () => {
-  let component: TemplateScrumFormComponent;
-  let fixture: ComponentFixture<TemplateScrumFormComponent>;
+describe('StickyNoteComponent', () => {
+  let component: StickyNoteComponent;
+  let fixture: ComponentFixture<StickyNoteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TemplateScrumFormComponent ]
+      declarations: [ StickyNoteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TemplateScrumFormComponent);
+    fixture = TestBed.createComponent(StickyNoteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
