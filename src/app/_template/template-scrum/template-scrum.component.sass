@@ -5,11 +5,18 @@
   justify-content: center
   table
     width: 66%
+    border-collapse: collapse
     th
       background-color: $prime
       padding: 6px
       width: 22%
       color: white
+    tr
+      background: rgba(0, 0, 0, 0.73)
+      margin-bottom: 1em
+    td
+      margin-bottom: 1em
+
 .todo-form
   display: flex
   justify-content: center
@@ -20,6 +27,7 @@
     padding: 1em
     box-shadow: 4px 3px 8px 1px #5c5c5c
     -webkit-box-shadow: 4px 3px 8px 1px #5c5c5c
+    margin: 1em
     input
       border: none
       background: transparent
@@ -27,6 +35,7 @@
       outline: none
 
 .sticky-note
+  margin: 1em
   text-decoration: none
   color: #000
   background: #ffc
