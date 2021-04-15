@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { StickyNoteComponent} from '../sticky-note/sticky-note.component';
+import {Component, Input, OnInit} from '@angular/core';
 import {Data} from '../../_service/data';
 import {DataService} from '../../_service/data.service';
 import {HttpErrorResponse} from '@angular/common/http';
@@ -10,12 +9,15 @@ import {HttpErrorResponse} from '@angular/common/http';
   styleUrls: ['./template-scrum.component.sass']
 })
 export class TemplateScrumComponent implements OnInit {
-  data: Data;
-  public notes: Data[] = [];
+  @Input('beschreibung')
+  description = 'empty';
+  @Input('name')
+  namen = 'test';
+
+  public notes: Data[];
 
   constructor(private dataService: DataService) {
-    this.data = new Data('hi', 'test');
-    this.notes.push(this.data);
+    this.notes = [];
   }
 
   ngOnInit(): void {
@@ -33,10 +35,9 @@ export class TemplateScrumComponent implements OnInit {
     );
   }
 
-  onSubmit(data: Data): void {
-    this.data = data;
-    this.data.date = new Date();
-    this.notes.push(this.data);
+  onSubmit(): void {
+
+    this.notes.push(data);
     this.dataService.addNote(data);
   }
 }

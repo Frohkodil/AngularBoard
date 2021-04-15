@@ -6,17 +6,17 @@
     <th>Abgeschlossen</th>
   </tr>
   <!--<tr><td><app-sticky-note></app-sticky-note></td></tr>-->
-        <tr *ngFor="let note of notes" class="list-group-item">
-          <td> <div class="sticky-note">{{note.titel}}<br>{{note.beschreibung}}</div></td>
+        <tr *ngFor="let note of notes" class="list-group-item" cdkDropList #todolist="cdkDropList" >
+          <td> <div class="sticky-note">{{note.name}}<br>{{note.beschreibung}}</div></td>
           <td></td>
           <td></td>
         </tr>
   <tr>
     <td><div class="todo-form">
-      <form #Aufgaben="ngForm" (ngSubmit)="onSubmit(Aufgaben.value)">
-        <input type="text" name="titel" ngModel required>
+      <form #Aufgaben="ngForm" (ngSubmit)="onSubmit()">
+        <input [ngModel]="titel">
         <br>
-        <input type="text" name="beschreibung" ngModel required>
+        <input [ngModel]="beschreibung">
         <br>
         <input type = "submit" value = "Aufgabe erstellen">
       </form>

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StickyNoteComponent } from './sticky-note.component';
+import { TemplateLoginComponent } from './template-login.component';
 
-describe('StickyNoteComponent', () => {
-  let component: StickyNoteComponent;
-  let fixture: ComponentFixture<StickyNoteComponent>;
+describe('TemplateLoginComponent', () => {
+  let component: TemplateLoginComponent;
+  let fixture: ComponentFixture<TemplateLoginComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StickyNoteComponent ]
+      declarations: [ TemplateLoginComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StickyNoteComponent);
+    fixture = TestBed.createComponent(TemplateLoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
