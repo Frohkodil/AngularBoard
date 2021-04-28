@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Data} from '../../_service/data';
 import {DataService} from '../../_service/data.service';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Data} from '../../_service/data';
 
 @Component({
   selector: 'app-template-scrum',
@@ -10,14 +10,19 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class TemplateScrumComponent implements OnInit {
   @Input('beschreibung')
-  description = 'empty';
+  beschreibung = 'empty';
   @Input('name')
   namen = 'test';
 
-  public notes: Data[];
+  public openTasks: Data[];
+  public progressTasks: Data[];
+  public finishedTasks: Data[];
+  public data!: Data;
 
   constructor(private dataService: DataService) {
-    this.notes = [];
+    this.openTasks = [];
+    this.progressTasks = [];
+    this. finishedTasks = [];
   }
 
   ngOnInit(): void {
@@ -27,7 +32,7 @@ export class TemplateScrumComponent implements OnInit {
   public getTasks(): void {
     this.dataService.getTasks().subscribe(
       (response: Data[]) => {
-        this.notes = response;
+        this.openTasks = response;
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -36,9 +41,13 @@ export class TemplateScrumComponent implements OnInit {
   }
 
   onSubmit(): void {
-
-    this.notes.push(data);
-    this.dataService.addNote(data);
+    this.data = new Data(this.namen, this.beschreibung);
+    this.dataService.addNote(this.data).subscribe(data => {
+      this.openTasks.push(data);
+    },
+      (error: HttpErrorResponse) => {
+      alert(error.message);
+    });
   }
 }
 

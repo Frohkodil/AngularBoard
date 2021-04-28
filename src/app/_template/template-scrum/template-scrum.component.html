@@ -5,18 +5,41 @@
     <th>In Arbeit</th>
     <th>Abgeschlossen</th>
   </tr>
-  <!--<tr><td><app-sticky-note></app-sticky-note></td></tr>-->
-        <tr *ngFor="let note of notes" class="list-group-item" cdkDropList #todolist="cdkDropList" >
-          <td> <div class="sticky-note">{{note.name}}<br>{{note.beschreibung}}</div></td>
-          <td></td>
-          <td></td>
+        <tr>
+          <td>
+            <div *ngFor="let note of openTasks" class="list-group-item" class="sticky-note">
+              <h2>{{note.name}}</h2>
+              <br>
+              {{note.description}}
+              <br>
+              {{note.date}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let note of progressTasks" class="list-group-item" class="sticky-note">
+              <h2>{{note.name}}</h2>
+              <br>
+              {{note.description}}
+              <br>
+              {{note.date}}
+            </div>
+          </td>
+          <td>
+            <div *ngFor="let note of finishedTasks" class="list-group-item" class="sticky-note">
+              <h2>{{note.name}}</h2>
+              <br>
+              {{note.description}}
+              <br>
+              {{note.date}}
+            </div>
+          </td>
         </tr>
   <tr>
     <td><div class="todo-form">
       <form #Aufgaben="ngForm" (ngSubmit)="onSubmit()">
-        <input [ngModel]="titel">
+        <input [ngModel]="namen" name="name">
         <br>
-        <input [ngModel]="beschreibung">
+        <input [ngModel]="beschreibung" name="beschreibung">
         <br>
         <input type = "submit" value = "Aufgabe erstellen">
       </form>
