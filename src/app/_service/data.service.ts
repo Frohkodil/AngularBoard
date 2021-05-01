@@ -16,6 +16,10 @@ export class DataService {
     return this.http.get<Data[]>(`${this.apiServerUrl}/task/all`);
   }
 
+  public getTasksByState(state: number): Observable<Data[]> {
+    return this.http.get<Data[]>(`${this.apiServerUrl}/task/${state}`);
+  }
+
   public addNote(data: Data): Observable<Data> {
     return this.http.post<Data>(`${this.apiServerUrl}/task/add`, data);
   }
